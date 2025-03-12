@@ -40,17 +40,17 @@ jobs:
           echo "Build succeeded - files to be deployed:"
           ls -la mc-nav/dist
 
+      - name: Install sshpass
+        run: sudo apt-get install -y sshpass
+          
       - name: Deploy to Server
-        uses: easingthemes/ssh-deploy@v4
-        env:
-          # SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          PASSWORD: ${{ secrets.REMOTE_PASSWORD }}
-          ARGS: "-rlgoDzvc -i --delete" # 添加--delete以删除目标上不再存在的文件
-          SOURCE: "mc-nav/dist/"
-          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
-          REMOTE_USER: ${{ secrets.REMOTE_USER }}
-          TARGET: "/1p/1panel/apps/openresty/openresty/www/sites/lemwood.cn/index" # 直接指定服务器目录路径
-          EXCLUDE: "node_modules/, .git/, .github/"
+        if: success()
+        run: |
+          cd mc-nav
+          echo "开始部署到服务器..."
+          sshpass -p "${{ secrets.REMOTE_PASSWORD }}" rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
+            dist/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/1p/1panel/apps/openresty/openresty/www/sites/lemwood.cn/index
+          echo "部署完成!"
 
       - name: Verify deployment
         if: success()
