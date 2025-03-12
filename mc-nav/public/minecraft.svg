@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <!-- 背景 -->
+  <rect width="512" height="512" fill="#5c7c19" rx="64" ry="64"/>
+  
+  <!-- 草方块图案 -->
+  <rect width="104" height="104" x="120" y="120" fill="#8c5e19" rx="8" ry="8"/>
+  <rect width="104" height="104" x="288" y="120" fill="#8c5e19" rx="8" ry="8"/>
+  <rect width="104" height="104" x="120" y="288" fill="#8c5e19" rx="8" ry="8"/>
+  <rect width="104" height="104" x="288" y="288" fill="#8c5e19" rx="8" ry="8"/>
+  
+  <!-- 高光效果 -->
+  <rect width="96" height="16" x="124" y="124" fill="#a57939" rx="4" ry="4" opacity="0.5"/>
+  <rect width="96" height="16" x="292" y="124" fill="#a57939" rx="4" ry="4" opacity="0.5"/>
+  <rect width="96" height="16" x="124" y="292" fill="#a57939" rx="4" ry="4" opacity="0.5"/>
+  <rect width="96" height="16" x="292" y="292" fill="#a57939" rx="4" ry="4" opacity="0.5"/>
+  
+  <!-- 阴影效果 -->
+  <rect width="96" height="16" x="124" y="204" fill="#6d4916" rx="4" ry="4" opacity="0.3"/>
+  <rect width="96" height="16" x="292" y="204" fill="#6d4916" rx="4" ry="4" opacity="0.3"/>
+  <rect width="96" height="16" x="124" y="372" fill="#6d4916" rx="4" ry="4" opacity="0.3"/>
+  <rect width="96" height="16" x="292" y="372" fill="#6d4916" rx="4" ry="4" opacity="0.3"/>
+</svg> 

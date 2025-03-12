@@ -1,0 +1,61 @@
+name: Deploy to Server
+
+on:
+  push:
+    branches:
+      - main  # 或者你的主分支名称
+  workflow_dispatch: # 允许手动触发
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20' # 使用更稳定的LTS版本
+          cache: 'npm'
+          cache-dependency-path: 'mc-nav/package-lock.json'
+
+      - name: Install dependencies
+        run: |
+          cd mc-nav
+          npm ci # 使用ci而不是install以确保一致性
+
+      - name: Build project
+        run: |
+          cd mc-nav
+          npm run build
+          
+      - name: Test build output
+        run: |
+          if [ ! -d "mc-nav/dist" ]; then
+            echo "Build failed - dist directory not found"
+            exit 1
+          fi
+          echo "Build succeeded - files to be deployed:"
+          ls -la mc-nav/dist
+
+      - name: Deploy to Server
+        uses: easingthemes/ssh-deploy@v4
+        env:
+          # SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          PASSWORD: ${{ secrets.REMOTE_PASSWORD }}
+          ARGS: "-rlgoDzvc -i --delete" # 添加--delete以删除目标上不再存在的文件
+          SOURCE: "mc-nav/dist/"
+          REMOTE_HOST: ${{ secrets.REMOTE_HOST }}
+          REMOTE_USER: ${{ secrets.REMOTE_USER }}
+          TARGET: "/1p/1panel/apps/openresty/openresty/www/sites/lemwood.cn/index" # 直接指定服务器目录路径
+          EXCLUDE: "node_modules/, .git/, .github/"
+
+      - name: Verify deployment
+        if: success()
+        run: echo "🚀 部署成功！网站已更新。"
+        
+      - name: Notify on failure
+        if: failure()
+        run: echo "❌ 部署失败，请检查日志确定原因。" 
