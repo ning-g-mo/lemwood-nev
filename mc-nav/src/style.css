@@ -19,12 +19,12 @@
   
   /* 无图白色模式下的卡片样式 */
   .minimal-light-mode .glass-card {
-    @apply bg-white/90 border border-gray-200 shadow-lg backdrop-blur-sm;
+    @apply bg-white/95 border border-gray-200 shadow-lg;
   }
   
   /* 无图暗色模式下的卡片样式 */
   .minimal-dark-mode .glass-card {
-    @apply bg-gray-800/90 border border-gray-700 shadow-lg backdrop-blur-sm;
+    @apply bg-gray-800/95 border border-gray-700 shadow-lg;
   }
   
   .gradient-text {
