@@ -49,7 +49,7 @@ jobs:
           cd mc-nav
           echo "开始部署到服务器..."
           sshpass -p "${{ secrets.REMOTE_PASSWORD }}" rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
-            dist/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/1p/1panel/apps/openresty/openresty/www/sites/lemwood.cn/index
+            dist/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/opt/1panel/apps/openresty/openresty/www/sites/lemwood.cn/index
           echo "部署完成!"
 
       - name: Verify deployment
