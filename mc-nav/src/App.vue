@@ -318,7 +318,11 @@
                   </div>
                 </a>
 
-                <div class="glass-card p-6 bg-white/10 dark:bg-black/10">
+                <a 
+                  href="https://www.minebbs.com/resources/geysermenu.8893/" 
+                  target="_blank"
+                  class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
+                >
                   <div class="flex items-center mb-4">
                     <img 
                       src="/icons/geysermenu_logo.png" 
@@ -327,17 +331,148 @@
                     >
                     <div>
                       <h3 class="font-semibold text-gray-800 dark:text-white">GeyserMenu</h3>
-                      <p class="text-sm text-gray-600 dark:text-gray-400">服务器插件</p>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">基岩版表单插件</p>
                     </div>
                   </div>
                   <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">
-                    一个为 Minecraft 服务器设计的菜单插件，提供直观的用户界面。
+                    新一代geyser表单插件，轻量级的间歇泉表单插件，仅支持基岩版玩家使用。
                   </p>
                   <div class="flex flex-wrap gap-2">
-                    <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs rounded">插件</span>
-                    <span class="px-2 py-1 bg-gray-100 dark:bg-gray-900 text-gray-800 dark:text-gray-200 text-xs rounded">维护中</span>
+                    <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs rounded">原创</span>
+                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">开源</span>
+                    <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">基岩版</span>
                   </div>
-                </div>
+                </a>
+
+                <a 
+                  href="https://www.minebbs.com/resources/bellcommand.8721/" 
+                  target="_blank"
+                  class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
+                >
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-yellow-500 rounded-lg mr-3 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-800 dark:text-white">BellCommand</h3>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">物品命令插件</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">
+                    为你的物品设置左右键命令！允许服务器管理员创建可以执行命令的自定义物品。
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs rounded">原创</span>
+                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">开源</span>
+                    <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">工具</span>
+                  </div>
+                </a>
+
+                <a 
+                  href="https://www.minebbs.com/resources/1-21-4-yc-leaves-tpa-home.8438/" 
+                  target="_blank"
+                  class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
+                >
+                  <div class="flex items-center mb-4">
+                    <img 
+                      src="/icons/leaves_logo.png" 
+                      alt="YC Server Logo" 
+                      class="w-12 h-12 rounded-lg mr-3"
+                    >
+                    <div>
+                      <h3 class="font-semibold text-gray-800 dark:text-white">涌翠(YC)生电互通基础端</h3>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">服务端整合包</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">
+                    基于leaves核心，生电专属，全力适配基岩版。包含TPA、Home、假人等功能。
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">开源</span>
+                    <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">生电</span>
+                    <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">整合包</span>
+                  </div>
+                </a>
+
+                <a 
+                  href="https://www.minebbs.com/resources/huskhomesform-huskhomes.9003/" 
+                  target="_blank"
+                  class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
+                >
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-cyan-500 rounded-lg mr-3 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-800 dark:text-white">HuskHomesForm</h3>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">基岩版表单支持</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">
+                    为 HuskHomes 插件提供基岩版表单支持，让基岩版玩家也能使用GUI界面。
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs rounded">原创</span>
+                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">开源</span>
+                    <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">基岩版</span>
+                  </div>
+                </a>
+
+                <a 
+                  href="https://www.minebbs.com/resources/tpagui-tpa-gui.9002/" 
+                  target="_blank"
+                  class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
+                >
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-indigo-500 rounded-lg mr-3 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-800 dark:text-white">TpaGUI</h3>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">TPA GUI插件</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">
+                    一个简单的为TPA提供GUI功能的插件，支持箱子菜单和基岩版表单，不需要任何依赖。
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs rounded">原创</span>
+                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">开源</span>
+                    <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">GUI</span>
+                  </div>
+                </a>
+
+                <a 
+                  href="https://www.minebbs.com/resources/worldaliasvariables.8969/" 
+                  target="_blank"
+                  class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
+                >
+                  <div class="flex items-center mb-4">
+                    <div class="w-12 h-12 bg-emerald-500 rounded-lg mr-3 flex items-center justify-center">
+                      <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                      </svg>
+                    </div>
+                    <div>
+                      <h3 class="font-semibold text-gray-800 dark:text-white">WorldAliasVariables</h3>
+                      <p class="text-sm text-gray-600 dark:text-gray-400">世界别名插件</p>
+                    </div>
+                  </div>
+                  <p class="text-gray-700 dark:text-gray-300 text-sm mb-3">
+                    为你的服务器提供简单的世界别名，在不用任何多世界插件的情况下为世界设置别名。
+                  </p>
+                  <div class="flex flex-wrap gap-2">
+                    <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs rounded">原创</span>
+                    <span class="px-2 py-1 bg-green-100 dark:bg-green-900 text-green-800 dark:text-green-200 text-xs rounded">开源</span>
+                    <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">工具</span>
+                  </div>
+                </a>
               </div>
             </div>
           </section>
@@ -433,20 +568,20 @@
               
               <div class="grid md:grid-cols-4 gap-6 text-center">
                 <div class="p-6 rounded-lg bg-white/20 dark:bg-black/20">
-                  <div class="text-3xl font-bold text-blue-500 mb-2">5+</div>
-                  <div class="text-gray-700 dark:text-gray-300">活跃项目</div>
+                  <div class="text-3xl font-bold text-blue-500 mb-2">11+</div>
+                  <div class="text-gray-700 dark:text-gray-300">总项目数</div>
                 </div>
                 <div class="p-6 rounded-lg bg-white/20 dark:bg-black/20">
-                  <div class="text-3xl font-bold text-green-500 mb-2">3</div>
-                  <div class="text-gray-700 dark:text-gray-300">网站项目</div>
-                </div>
-                <div class="p-6 rounded-lg bg-white/20 dark:bg-black/20">
-                  <div class="text-3xl font-bold text-purple-500 mb-2">2</div>
+                  <div class="text-3xl font-bold text-purple-500 mb-2">9</div>
                   <div class="text-gray-700 dark:text-gray-300">MC 项目</div>
                 </div>
                 <div class="p-6 rounded-lg bg-white/20 dark:bg-black/20">
-                  <div class="text-3xl font-bold text-orange-500 mb-2">∞</div>
-                  <div class="text-gray-700 dark:text-gray-300">创意想法</div>
+                  <div class="text-3xl font-bold text-orange-500 mb-2">6</div>
+                  <div class="text-gray-700 dark:text-gray-300">原创项目</div>
+                </div>
+                <div class="p-6 rounded-lg bg-white/20 dark:bg-black/20">
+                  <div class="text-3xl font-bold text-green-500 mb-2">8</div>
+                  <div class="text-gray-700 dark:text-gray-300">开源项目</div>
                 </div>
               </div>
             </div>
