@@ -17,11 +17,37 @@
     @apply backdrop-blur-md bg-white/10 dark:bg-black/20 border border-white/20 dark:border-white/10 rounded-xl shadow-xl;
   }
   
+  /* 无图白色模式下的卡片样式 */
+  .minimal-light-mode .glass-card {
+    @apply bg-white/90 border border-gray-200 shadow-lg backdrop-blur-sm;
+  }
+  
+  /* 无图暗色模式下的卡片样式 */
+  .minimal-dark-mode .glass-card {
+    @apply bg-gray-800/90 border border-gray-700 shadow-lg backdrop-blur-sm;
+  }
+  
   .gradient-text {
     @apply bg-gradient-to-r from-blue-400 via-purple-500 to-pink-500 bg-clip-text text-transparent;
   }
   
+  /* 无图白色模式下的渐变文字 */
+  .minimal-light-mode .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
+  }
+  
+  /* 无图暗色模式下的渐变文字 */
+  .minimal-dark-mode .gradient-text {
+    @apply bg-gradient-to-r from-blue-400 via-purple-400 to-pink-400 bg-clip-text text-transparent;
+  }
+  
   .link-hover {
     @apply transition-all duration-300 hover:scale-105 hover:shadow-lg;
+  }
+  
+  /* 无图模式下的悬停效果 */
+  .minimal-light-mode .link-hover:hover,
+  .minimal-dark-mode .link-hover:hover {
+    @apply shadow-xl;
   }
 }
