@@ -10,77 +10,97 @@
     ]"
     :style="getBackgroundStyle()"
   >
-    <!-- 导航按钮组 -->
-    <div class="fixed top-6 left-6 z-50">
-      <!-- 页面切换按钮 -->
-      <button
-        @click="togglePage"
-        class="glass-card p-3 link-hover group mb-3"
-        :title="getPageTooltip()"
-      >
-        <!-- 主页图标 -->
-        <svg v-if="currentPage === 'projects'" class="w-6 h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-        </svg>
-        <!-- 项目图标 -->
-        <svg v-else class="w-6 h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-        </svg>
-        
-        <!-- 页面切换提示文字 -->
-        <span class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs bg-black/80 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-          {{ getPageTooltip() }}
-        </span>
-      </button>
-    </div>
+    <!-- 统一顶栏 -->
+    <header class="fixed top-0 left-0 right-0 z-50 p-4 md:p-6">
+      <div class="glass-card mx-auto max-w-7xl">
+        <div class="flex items-center justify-between px-4 py-3">
+          <!-- 左侧：Logo 和标题 -->
+          <div class="flex items-center space-x-3">
+            <img 
+              src="/logo.png" 
+              alt="Logo" 
+              class="w-8 h-8 md:w-10 md:h-10 rounded-full"
+            >
+            <div class="hidden sm:block">
+              <h1 class="text-lg md:text-xl font-bold gradient-text">柠枺</h1>
+              <p class="text-xs text-gray-600 dark:text-gray-400 hidden md:block">个人主页</p>
+            </div>
+          </div>
 
-    <!-- 主题切换按钮组 -->
-    <div class="fixed top-6 right-6 z-50 flex flex-col space-y-3">
-      <!-- 无图模式切换按钮 -->
-      <button
-        @click="toggleBackgroundMode"
-        class="glass-card p-3 link-hover group"
-        :title="getBackgroundModeTooltip()"
-      >
-        <!-- 有背景图标 -->
-        <svg v-if="!isMinimalMode" class="w-6 h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-        </svg>
-        <!-- 无图图标 -->
-        <svg v-else class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-        </svg>
-        
-        <!-- 背景模式提示文字 -->
-        <span class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs bg-black/80 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-          {{ getBackgroundModeTooltip() }}
-        </span>
-      </button>
+          <!-- 右侧：功能按钮组 -->
+          <div class="flex items-center space-x-2 md:space-x-3">
+            <!-- 页面切换按钮 -->
+            <button
+              @click="togglePage"
+              class="glass-card p-2 md:p-3 link-hover group relative"
+              :title="getPageTooltip()"
+            >
+              <!-- 主页图标 -->
+              <svg v-if="currentPage === 'projects'" class="w-5 h-5 md:w-6 md:h-6 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
+              </svg>
+              <!-- 项目图标 -->
+              <svg v-else class="w-5 h-5 md:w-6 md:h-6 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+              </svg>
+              
+              <!-- 桌面端提示文字 -->
+              <span class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-xs bg-black/80 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
+                {{ getPageTooltip() }}
+              </span>
+            </button>
 
-      <!-- 暗色模式切换按钮 -->
-      <button
-        @click="toggleDarkMode"
-        class="glass-card p-3 link-hover group"
-        :title="getDarkModeTooltip()"
-      >
-        <!-- 亮色主题图标 -->
-        <svg v-if="!isDarkMode" class="w-6 h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-          <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-        </svg>
-        <!-- 暗色主题图标 -->
-        <svg v-else class="w-6 h-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-          <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-        </svg>
-        
-        <!-- 暗色模式提示文字 -->
-        <span class="absolute -bottom-8 left-1/2 transform -translate-x-1/2 text-xs bg-black/80 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
-          {{ getDarkModeTooltip() }}
-        </span>
-      </button>
-    </div>
+            <!-- 分隔线 -->
+            <div class="w-px h-6 bg-gray-300 dark:bg-gray-600 hidden sm:block"></div>
+
+            <!-- 无图模式切换按钮 -->
+            <button
+              @click="toggleBackgroundMode"
+              class="glass-card p-2 md:p-3 link-hover group relative"
+              :title="getBackgroundModeTooltip()"
+            >
+              <!-- 有背景图标 -->
+              <svg v-if="!isMinimalMode" class="w-5 h-5 md:w-6 md:h-6 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+              </svg>
+              <!-- 无图图标 -->
+              <svg v-else class="w-5 h-5 md:w-6 md:h-6 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
+              </svg>
+              
+              <!-- 桌面端提示文字 -->
+              <span class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-xs bg-black/80 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
+                {{ getBackgroundModeTooltip() }}
+              </span>
+            </button>
+
+            <!-- 暗色模式切换按钮 -->
+            <button
+              @click="toggleDarkMode"
+              class="glass-card p-2 md:p-3 link-hover group relative"
+              :title="getDarkModeTooltip()"
+            >
+              <!-- 亮色主题图标 -->
+              <svg v-if="!isDarkMode" class="w-5 h-5 md:w-6 md:h-6 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+              </svg>
+              <!-- 暗色主题图标 -->
+              <svg v-else class="w-5 h-5 md:w-6 md:h-6 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+              </svg>
+              
+              <!-- 桌面端提示文字 -->
+              <span class="absolute top-full left-1/2 transform -translate-x-1/2 mt-2 text-xs bg-black/80 text-white px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
+                {{ getDarkModeTooltip() }}
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
 
     <!-- 主要内容 -->
-    <div class="container mx-auto px-4 py-8">
+    <div class="container mx-auto px-4 pt-24 md:pt-28 pb-8">
       <!-- 主页内容 -->
       <div v-if="currentPage === 'home'" class="animate-fade-in">
         <!-- 头部区域 -->
