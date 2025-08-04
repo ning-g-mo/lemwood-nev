@@ -1,400 +1,195 @@
-<script setup>
-import { ref, computed, watch, onMounted } from 'vue'
-import { useDark, useToggle, useStorage } from '@vueuse/core'
-import { NButton, NConfigProvider, darkTheme, NInput, NIcon, NEmpty } from 'naive-ui'
-import NavSection from './components/NavSection.vue'
-import { Search } from '@vicons/ionicons5'
-import { h } from 'vue'
-
-const isDark = useDark()
-const toggleDark = useToggle(isDark)
-
-// 判断是否为图片URL路径
-const isImageUrl = (icon) => {
-  if (!icon) return false
-  return typeof icon === 'string' && (
-    icon.startsWith('http') || 
-    icon.startsWith('/') || 
-    icon.startsWith('./') || 
-    icon.startsWith('../') ||
-    icon.match(/\.(png|jpg|jpeg|svg|webp|gif)$/)
-  )
-}
-
-// 简化背景处理逻辑
-const updateTheme = (dark) => {
-  const body = document.body
-  
-  // 移除所有可能的类名
-  body.classList.remove('dark-mode', 'light-mode')
-  
-  // 添加正确的类名
-  body.classList.add(dark ? 'dark-mode' : 'light-mode')
-}
-
-// 初始化主题
-onMounted(() => {
-  updateTheme(isDark.value)
-})
-
-// 监听主题变化
-watch(isDark, (newValue) => {
-  updateTheme(newValue)
-})
-
-const searchQuery = ref('')
-const showSearchResults = ref(false)
-
-// 导航链接数据 - 只使用emoji图标
-const links = ref([
-  {
-    category: '我的网站',
-    icon: '🌐',
-    items: [
-      { name: '开发文档', url: 'https://wiki.lemwood.cn', icon: '📘' },
-      { name: 'fold craft launcher', url: 'https://fcl.ningmo.fun', icon: '/icons/fcl_logo.png' }
-    ]
-  },
-  {
-    category: '我的资源',
-    icon: '📦',
-    items: [
-      { name: '互通优化整合端', url: 'https://wiki.lemwood.cn/docs/leaves', icon: '/icons/leaves_logo.png' },
-      { name: 'bellcommand', url: 'https://wiki.lemwood.cn/docs/bellcommand', icon: '⏲' },
-      { name: 'geysermenu', url: 'https://wiki.lemwood.cn/docs/geysermenu', icon: '/icons/geysermenu_logo.png' }
-    ]
-  },
-  {
-    category: '其他',
-    icon: '📘',
-    items: [
-      { name: '待定', url: 'https://wiki.lemwood.cn', icon: '📘' }
-    ]
-  }
-])
-
-// 搜索结果
-const searchResults = computed(() => {
-  if (!searchQuery.value.trim()) return []
-  
-  const query = searchQuery.value.toLowerCase().trim()
-  const results = []
-  
-  links.value.forEach(section => {
-    // 搜索分类名称
-    const matchingCategory = section.category.toLowerCase().includes(query)
-    
-    // 搜索分类下的项目
-    const matchingItems = section.items.filter(item => 
-      item.name.toLowerCase().includes(query)
-    )
-    
-    if (matchingCategory || matchingItems.length > 0) {
-      results.push({
-        category: section.category,
-        icon: section.icon,
-        items: matchingItems,
-        isCategoryMatch: matchingCategory
-      })
-    }
-  })
-  
-  return results
-})
-
-// 处理搜索框聚焦
-function handleSearchFocus() {
-  showSearchResults.value = true
-}
-
-// 处理点击外部区域
-function handleOutsideClick(e) {
-  if (!e.target.closest('.search-container') && !e.target.closest('.search-results')) {
-    showSearchResults.value = false
-  }
-}
-
-// 处理搜索框清空
-function handleSearchClear() {
-  searchQuery.value = ''
-}
-</script>
-
 <template>
-  <n-config-provider :theme="isDark ? darkTheme : null">
-    <div class="glass-container" :class="{ 'dark-glass': isDark }" @click="handleOutsideClick">
-      <header class="nav-header">
-        <div class="logo-container">
-          <img src="/logo.png" alt="Logo" class="logo-icon" />
-          <h1>柠枺的MC导航站</h1>
+  <div 
+    :class="[
+      'min-h-screen transition-all duration-500',
+      isDark ? 'dark bg-dark-bg' : 'bg-light-bg'
+    ]"
+    class="bg-cover bg-center bg-fixed"
+  >
+    <!-- 主题切换按钮 -->
+    <button
+      @click="toggleTheme"
+      class="fixed top-6 right-6 z-50 glass-card p-3 link-hover"
+    >
+      <svg v-if="isDark" class="w-6 h-6 text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+        <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
+      </svg>
+      <svg v-else class="w-6 h-6 text-gray-700" fill="currentColor" viewBox="0 0 20 20">
+        <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
+      </svg>
+    </button>
+
+    <!-- 主要内容 -->
+    <div class="container mx-auto px-4 py-8">
+      <!-- 头部区域 -->
+      <header class="text-center mb-12 animate-fade-in">
+        <div class="mb-8">
+          <img 
+            src="/logo.png" 
+            alt="Logo" 
+            class="w-24 h-24 mx-auto rounded-full shadow-2xl animate-float"
+          >
         </div>
-        <n-button @click="toggleDark()" class="theme-toggle">
-          {{ isDark ? '🌙' : '☀️' }}
-        </n-button>
-      </header>
-      
-      <!-- 搜索框 -->
-      <div class="search-container">
-        <n-input
-          v-model:value="searchQuery"
-          placeholder="搜索导航链接..."
-          clearable
-          @focus="handleSearchFocus"
-          @clear="handleSearchClear"
-        >
-          <template #prefix>
-            <n-icon :component="h(Search)" />
-          </template>
-        </n-input>
         
-        <!-- 搜索结果 -->
-        <div class="search-results" v-if="showSearchResults && searchQuery.trim()">
-          <div v-if="searchResults.length" class="results-content">
-            <div v-for="(section, index) in searchResults" :key="index" class="result-section">
-              <h3 :class="{ highlighted: section.isCategoryMatch }">
-                <span v-if="!isImageUrl(section.icon)" class="icon">{{ section.icon }}</span>
-                <img v-else :src="section.icon" alt="icon" class="icon-img" />
-                {{ section.category }}
-              </h3>
-              <div class="result-items">
-                <a v-for="item in section.items" 
-                   :key="item.name" 
-                   :href="item.url" 
-                   class="result-item"
-                   :class="{ 'dark-item': isDark }">
-                  <span v-if="!isImageUrl(item.icon)" class="icon">{{ item.icon }}</span>
-                  <img v-else :src="item.icon" alt="icon" class="icon-img" />
-                  {{ item.name }}
-                </a>
+        <h1 class="text-5xl md:text-7xl font-bold mb-4 gradient-text animate-slide-up">
+          柠枺
+        </h1>
+        
+        <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6 animate-slide-up italic">
+          "世界源于灵活的幻想"
+        </p>
+      </header>
+
+      <!-- 简介卡片 -->
+      <section class="max-w-4xl mx-auto mb-12 animate-slide-up">
+        <div class="glass-card p-8 md:p-12">
+          <h2 class="text-3xl font-bold mb-6 text-gray-800 dark:text-white">
+            关于我
+          </h2>
+          <p class="text-lg leading-relaxed text-gray-700 dark:text-gray-300">
+            大家好，我是柠枺，这里是我的主页。本人并不会什么语言，也不是什么大佬，我只会运用AI来完成我的项目。
+            本人20岁男，新疆维吾尔族人。
+          </p>
+        </div>
+      </section>
+
+      <!-- 联系方式 -->
+      <section class="max-w-4xl mx-auto mb-12 animate-slide-up">
+        <div class="glass-card p-8 md:p-12">
+          <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">
+            联系方式
+          </h2>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <div class="space-y-4">
+              <div class="flex items-center space-x-4 p-4 rounded-lg bg-white/20 dark:bg-black/20 link-hover">
+                <div class="w-12 h-12 bg-blue-500 rounded-full flex items-center justify-center">
+                  <span class="text-white font-bold">QQ</span>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-800 dark:text-white">QQ</h3>
+                  <p class="text-gray-600 dark:text-gray-400">3436464181</p>
+                  <p class="text-sm text-gray-500 dark:text-gray-500">(QQ号不是群)</p>
+                </div>
               </div>
+
+              <a 
+                href="https://github.com/ning-g-mo" 
+                target="_blank"
+                class="flex items-center space-x-4 p-4 rounded-lg bg-white/20 dark:bg-black/20 link-hover block"
+              >
+                <div class="w-12 h-12 bg-gray-800 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-800 dark:text-white">GitHub</h3>
+                  <p class="text-gray-600 dark:text-gray-400">ning-g-mo</p>
+                </div>
+              </a>
+            </div>
+
+            <div class="space-y-4">
+              <a 
+                href="https://wiki.lemwood.cn" 
+                target="_blank"
+                class="flex items-center space-x-4 p-4 rounded-lg bg-white/20 dark:bg-black/20 link-hover block"
+              >
+                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center">
+                  <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
+                  </svg>
+                </div>
+                <div>
+                  <h3 class="font-semibold text-gray-800 dark:text-white">个人Wiki</h3>
+                  <p class="text-gray-600 dark:text-gray-400">Wiki.lemwood.cn</p>
+                </div>
+              </a>
             </div>
           </div>
-          <n-empty v-else description="没有找到匹配的结果" />
         </div>
-      </div>
-      
-      <!-- 导航部分 -->
-      <NavSection 
-        v-for="(section, index) in links"
-        :key="index"
-        :section="section"
-      />
+      </section>
 
-      <!-- ICP备案信息 -->
-      <footer class="icp-footer">
-        <a href="https://beian.miit.gov.cn/" target="_blank" rel="noopener noreferrer">
-          新ICP备2024015133号-3
-        </a>
-      </footer>
+      <!-- 相关项目 -->
+      <section class="max-w-4xl mx-auto animate-slide-up">
+        <div class="glass-card p-8 md:p-12">
+          <h2 class="text-3xl font-bold mb-8 text-gray-800 dark:text-white text-center">
+            相关项目
+          </h2>
+          
+          <div class="grid md:grid-cols-2 gap-6">
+            <a 
+              href="https://foldcraftlauncher.cn" 
+              target="_blank"
+              class="flex items-center space-x-4 p-6 rounded-lg bg-white/20 dark:bg-black/20 link-hover block"
+            >
+              <img 
+                src="/icons/fcl_logo.png" 
+                alt="FCL Logo" 
+                class="w-16 h-16 rounded-lg"
+              >
+              <div>
+                <h3 class="font-semibold text-gray-800 dark:text-white text-lg">FCL下载站</h3>
+                <p class="text-gray-600 dark:text-gray-400">foldcraftlauncher.cn</p>
+              </div>
+            </a>
+
+            <a 
+              href="https://zalithlauncher.cn" 
+              target="_blank"
+              class="flex items-center space-x-4 p-6 rounded-lg bg-white/20 dark:bg-black/20 link-hover block"
+            >
+              <div class="w-16 h-16 bg-purple-500 rounded-lg flex items-center justify-center">
+                <span class="text-white font-bold text-xl">Z</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-800 dark:text-white text-lg">ZalithLauncher官网</h3>
+                <p class="text-gray-600 dark:text-gray-400">zalithlauncher.cn</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
     </div>
-  </n-config-provider>
+
+    <!-- 页脚 -->
+    <footer class="text-center py-8 mt-16">
+      <div class="glass-card max-w-md mx-auto p-6">
+        <p class="text-gray-600 dark:text-gray-400">
+          © 2025 柠枺的个人主页
+        </p>
+        <p class="text-sm text-gray-500 dark:text-gray-500 mt-2">
+          Made with ❤️ and AI
+        </p>
+        <p class="text-xs text-gray-500 dark:text-gray-500 mt-2">
+          <a href="https://beian.miit.gov.cn/" target="_blank" class="hover:text-gray-400 transition-colors">
+            新ICP备2024015133号-3
+          </a>
+        </p>
+      </div>
+    </footer>
+  </div>
 </template>
 
-<style>
-.glass-container {
-  backdrop-filter: blur(12px) saturate(180%);
-  background: rgba(255, 255, 255, 0.7);
-  border-radius: clamp(12px, 3vw, 16px);
-  padding: clamp(1.5rem, 4vw, 3rem);
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
-  width: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  color: rgba(0, 0, 0, 0.9);
-  box-sizing: border-box;
-  overflow: hidden;
-  transition: all 0.3s ease;
+<script setup>
+import { ref, onMounted } from 'vue'
+
+const isDark = ref(false)
+
+const toggleTheme = () => {
+  isDark.value = !isDark.value
+  localStorage.setItem('theme', isDark.value ? 'dark' : 'light')
 }
 
-.dark-glass {
-  background: rgba(20, 20, 25, 0.7);
-  color: rgba(255, 255, 255, 0.9);
-  border-color: rgba(255, 255, 255, 0.08);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
-}
-
-.nav-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: clamp(1rem, 2vw, 1.5rem);
-  gap: 1rem;
-  flex-wrap: wrap;
-}
-
-.logo-container {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.logo-icon {
-  width: clamp(2rem, 8vw, 2.5rem);
-  height: clamp(2rem, 8vw, 2.5rem);
-  object-fit: contain;
-  filter: drop-shadow(0 2px 5px rgba(0, 0, 0, 0.2));
-}
-
-.theme-toggle {
-  min-width: 44px;
-  height: 44px;
-  padding: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-/* 搜索相关样式 */
-.search-container {
-  margin-bottom: clamp(1.5rem, 4vw, 2rem);
-  position: relative;
-  z-index: 10;
-}
-
-.search-results {
-  position: absolute;
-  top: 100%;
-  left: 0;
-  right: 0;
-  background: rgba(255, 255, 255, 0.9);
-  border-radius: 8px;
-  margin-top: 0.5rem;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  max-height: 60vh;
-  overflow-y: auto;
-  border: 1px solid rgba(230, 230, 230, 0.7);
-  z-index: 100;
-}
-
-.dark-glass .search-results {
-  background: rgba(30, 30, 35, 0.9);
-  border-color: rgba(60, 60, 65, 0.5);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-}
-
-.results-content {
-  padding: 1rem;
-}
-
-.result-section {
-  margin-bottom: 1rem;
-}
-
-.result-section:last-child {
-  margin-bottom: 0;
-}
-
-.result-section h3 {
-  font-size: 1rem;
-  margin: 0 0 0.5rem 0;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.highlighted {
-  background: rgba(255, 255, 150, 0.3);
-  padding: 0.25rem 0.5rem;
-  border-radius: 4px;
-}
-
-.dark-glass .highlighted {
-  background: rgba(255, 255, 150, 0.15);
-}
-
-.result-items {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  gap: 0.5rem;
-}
-
-.result-item {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  padding: 0.5rem;
-  border-radius: 4px;
-  background: rgba(240, 240, 240, 0.5);
-  color: inherit;
-  text-decoration: none;
-  transition: all 0.2s ease;
-}
-
-.result-item:hover {
-  background: rgba(230, 230, 230, 0.8);
-  transform: translateY(-2px);
-}
-
-.dark-glass .result-item {
-  background: rgba(50, 50, 55, 0.5);
-}
-
-.dark-glass .result-item:hover {
-  background: rgba(60, 60, 65, 0.8);
-}
-
-@media (max-width: 480px) {
-  .glass-container {
-    border-radius: 8px;
-    padding: 1rem;
+onMounted(() => {
+  // 检查本地存储的主题设置
+  const savedTheme = localStorage.getItem('theme')
+  if (savedTheme) {
+    isDark.value = savedTheme === 'dark'
+  } else {
+    // 检查系统主题偏好
+    isDark.value = window.matchMedia('(prefers-color-scheme: dark)').matches
   }
-
-  .nav-header {
-    margin-bottom: 1rem;
-    flex-direction: column;
-    align-items: center;
-  }
-
-  h1 {
-    font-size: 1.5rem;
-  }
-  
-  .search-results {
-    max-height: 70vh;
-  }
-  
-  .result-items {
-    grid-template-columns: 1fr;
-  }
-  
-  .logo-container {
-    margin-bottom: 0.5rem;
-  }
-  
-  .theme-toggle {
-    align-self: flex-end;
-  }
-}
-
-/* ICP备案信息样式 */
-.icp-footer {
-  margin-top: 2rem;
-  text-align: center;
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.icp-footer a {
-  color: inherit;
-}
-
-.icp-footer a:hover {
-  opacity: 1;
-}
-
-.icon {
-  font-size: 1.25rem;
-  line-height: 1;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.icon-img {
-  width: 1.25rem;
-  height: 1.25rem;
-  object-fit: contain;
-  vertical-align: middle;
-  border-radius: 4px;
-}
-</style>
+})
+</script>

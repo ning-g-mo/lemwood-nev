@@ -1,76 +1,68 @@
-# MC-Nav: Minecraft 导航网站
+# 柠枺的个人主页
 
-一个美观、简洁的 Minecraft 相关资源导航网站。
+一个使用 Vue 3 + Vite + Tailwind CSS 构建的现代化个人主页。
 
-## 特点
+## 特性
 
-- 🌓 明暗主题切换
-- 🔍 内置搜索功能
-- 🎨 毛玻璃界面设计
-- 📱 响应式布局 (桌面端和移动端)
-- 🖼️ 自定义背景图片
-- 🔧 易于定制的导航链接
-- 🏷️ 支持emoji和图片图标
-
-## 快速开始
-
-```bash
-# 安装依赖
-npm install
-
-# 开发模式启动
-npm run dev
-
-# 构建生产版本
-npm run build
-```
-
-## 自定义内容
-
-### 导航链接
-
-编辑 `src/App.vue` 中的 `links` 数组来自定义导航分类和链接。
-
-```javascript
-const links = ref([
-  {
-    category: '分类名称', // 分类标题
-    icon: '⚙️',         // 分类图标 (可以是emoji或图片URL)
-    items: [
-      { name: '链接名称', url: '/链接地址', icon: '📘' }, // 链接项 (图标可以是emoji或图片URL)
-      { name: '图片图标示例', url: '/示例链接', icon: '/icons/example.png' } // 使用图片作为图标
-    ]
-  },
-  // 更多分类...
-]);
-```
-
-### 图标支持
-
-MC-Nav 支持两种类型的图标:
-
-1. **Emoji 图标**: 直接使用 emoji 字符，如 `'🌐'`、`'📘'` 等
-2. **图片图标**: 使用图片的URL路径，如 `/icons/example.png`
-
-图片图标建议:
-- 将图片放在 `public/icons/` 目录下
-- 使用透明背景的图片 (PNG 或 SVG 格式)
-- 推荐尺寸为 32x32 或 64x64 像素
-
-### 背景图片
-
-替换 `public/` 目录中的以下文件:
-
-- `bg-light.jpg`: 浅色主题背景图
-- `bg-dark.jpg`: 深色主题背景图
-
-## ICP备案信息
-
-网站底部显示的ICP备案信息可以在 `App.vue` 文件中的 `icp-footer` 部分修改。
+- 🌓 暗色/亮色主题切换
+- 📱 响应式设计
+- ✨ 流畅的动画效果
+- 🎨 毛玻璃效果卡片
+- 🖼️ 动态背景图片
 
 ## 技术栈
 
 - Vue 3
 - Vite
-- Naive UI
-- VueUse
+- Tailwind CSS
+- JavaScript
+
+## 快速开始
+
+1. 安装依赖：
+```bash
+npm install
+```
+
+2. 启动开发服务器：
+```bash
+npm run dev
+```
+
+3. 构建生产版本：
+```bash
+npm run build
+```
+
+4. 预览生产版本：
+```bash
+npm run preview
+```
+
+## 项目结构
+
+```
+├── public/                 # 静态资源
+│   ├── bg-dark.jpg        # 暗色主题背景图
+│   ├── bg-light.jpg       # 亮色主题背景图
+│   ├── logo.png           # 网站图标
+│   └── icons/             # 项目图标
+├── src/
+│   ├── App.vue            # 主组件
+│   ├── main.js            # 入口文件
+│   └── style.css          # 全局样式
+├── index.html             # HTML 模板
+├── package.json           # 项目配置
+├── vite.config.js         # Vite 配置
+└── tailwind.config.js     # Tailwind 配置
+```
+
+## 自定义
+
+- 修改 `src/App.vue` 中的个人信息
+- 替换 `public/` 目录下的图片资源
+- 调整 `tailwind.config.js` 中的主题配置
+
+## 部署
+
+项目构建后会生成 `dist` 目录，可以部署到任何静态网站托管服务。
