@@ -118,7 +118,7 @@
           </h1>
           
           <p class="text-xl md:text-2xl text-gray-700 dark:text-gray-300 mb-6 animate-slide-up italic">
-            "世界源于灵活的幻想"
+            "世界源于灵魂的幻想"
           </p>
         </header>
 
