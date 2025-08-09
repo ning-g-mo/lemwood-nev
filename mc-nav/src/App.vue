@@ -596,7 +596,7 @@
         <!-- 友情链接 -->
         <div class="mb-4 pb-4 border-b border-gray-300/30 dark:border-gray-600/30">
           <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">友情链接</h3>
-          <div class="flex justify-center">
+          <div class="flex justify-center flex-wrap gap-2">
             <a href="https://mengze.vip" target="_blank" 
                class="inline-flex items-center px-3 py-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 hover:underline rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20">
               <img src="https://cdn.zeart.ink/gh/YShenZe/Blog-Static-Resource@main/images/202508091754715429589-27c40fedf962afbafbf31a7a06cd137b.jpg" 
@@ -604,6 +604,14 @@
                    class="w-6 h-6 rounded-full mr-2 border border-gray-200 dark:border-gray-600"
                    loading="lazy">
               梦泽
+            </a>
+            <a href="https://lovekogasa.lapis-net.top" target="_blank" 
+               class="inline-flex items-center px-3 py-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 hover:underline rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <img src="https://lovekogasa.lapis-net.top/avatar/avatar.jpg" 
+                   alt="Love-kogasa头像" 
+                   class="w-6 h-6 rounded-full mr-2 border border-gray-200 dark:border-gray-600"
+                   loading="lazy">
+              Love-kogasa
             </a>
           </div>
         </div>
