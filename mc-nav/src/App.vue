@@ -613,6 +613,14 @@
                    loading="lazy">
               Love-kogasa
             </a>
+            <a href="https://github.com/XiaoluoFoxington" target="_blank" 
+               class="inline-flex items-center px-3 py-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 hover:underline rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <img src="https://cdn.mengze.vip/gh/XiaoluoFoxington/FCL.website.mdui/file/avatar/XiaoluoFoxington.webp" 
+                   alt="洛狐XiaoluoFoxington头像" 
+                   class="w-6 h-6 rounded-full mr-2 border border-gray-200 dark:border-gray-600"
+                   loading="lazy">
+              洛狐XiaoluoFoxington
+            </a>
           </div>
         </div>
         
