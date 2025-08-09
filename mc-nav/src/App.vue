@@ -621,6 +621,14 @@
                    loading="lazy">
               洛狐XiaoluoFoxington
             </a>
+            <a href="https://mcisee.top/" target="_blank" 
+               class="inline-flex items-center px-3 py-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 hover:underline rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <img src="/icons/mcisee.png" 
+                   alt="mcisee图标" 
+                   class="w-6 h-6 rounded-full mr-2 border border-gray-200 dark:border-gray-600"
+                   loading="lazy">
+              mcisee
+            </a>
           </div>
         </div>
         
