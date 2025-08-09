@@ -319,7 +319,7 @@
                 </a>
 
                 <a 
-                  href="https://www.minebbs.com/resources/geysermenu.8893/" 
+                  href="https://www.minebbs.com/resources/geysermenu-geyser.10502/" 
                   target="_blank"
                   class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
                 >
@@ -345,7 +345,7 @@
                 </a>
 
                 <a 
-                  href="https://www.minebbs.com/resources/bellcommand.8721/" 
+                  href="https://www.minebbs.com/resources/bellcommand.10134/" 
                   target="_blank"
                   class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
                 >
@@ -371,7 +371,7 @@
                 </a>
 
                 <a 
-                  href="https://www.minebbs.com/resources/1-21-4-yc-leaves-tpa-home.8438/" 
+                  href="https://www.minebbs.com/resources/yc-leaves-tpa-home.9012/" 
                   target="_blank"
                   class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
                 >
@@ -397,7 +397,7 @@
                 </a>
 
                 <a 
-                  href="https://www.minebbs.com/resources/huskhomesform-huskhomes.9003/" 
+                  href="https://www.minebbs.com/resources/huskhomesform-huskhomes.10836/" 
                   target="_blank"
                   class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
                 >
@@ -423,7 +423,7 @@
                 </a>
 
                 <a 
-                  href="https://www.minebbs.com/resources/tpagui-tpa-gui.9002/" 
+                  href="https://www.minebbs.com/resources/tpagui-tpa-gui.10835/" 
                   target="_blank"
                   class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
                 >
@@ -449,7 +449,7 @@
                 </a>
 
                 <a 
-                  href="https://www.minebbs.com/resources/worldaliasvariables.8969/" 
+                  href="https://www.minebbs.com/resources/worldaliasvariables.10485/" 
                   target="_blank"
                   class="glass-card p-6 link-hover block bg-white/10 dark:bg-black/10"
                 >
@@ -593,6 +593,21 @@
     <!-- 页脚 -->
     <footer class="text-center py-8 mt-16">
       <div class="glass-card max-w-md mx-auto p-6">
+        <!-- 友情链接 -->
+        <div class="mb-4 pb-4 border-b border-gray-300/30 dark:border-gray-600/30">
+          <h3 class="text-sm font-semibold text-gray-700 dark:text-gray-300 mb-2">友情链接</h3>
+          <div class="flex justify-center">
+            <a href="https://mengze.vip" target="_blank" 
+               class="inline-flex items-center px-3 py-2 text-sm text-blue-600 dark:text-blue-400 hover:text-blue-800 dark:hover:text-blue-300 transition-colors duration-200 hover:underline rounded-lg hover:bg-blue-50 dark:hover:bg-blue-900/20">
+              <img src="https://cdn.zeart.ink/gh/YShenZe/Blog-Static-Resource@main/images/202508091754715429589-27c40fedf962afbafbf31a7a06cd137b.jpg" 
+                   alt="梦泽头像" 
+                   class="w-6 h-6 rounded-full mr-2 border border-gray-200 dark:border-gray-600"
+                   loading="lazy">
+              梦泽
+            </a>
+          </div>
+        </div>
+        
         <p class="text-gray-600 dark:text-gray-400">
           © 2025 柠枺的个人主页
         </p>
