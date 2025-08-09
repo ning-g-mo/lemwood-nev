@@ -47,13 +47,13 @@
 
           <div class="project-card">
             <div class="flex items-center mb-4">
-              <div class="w-12 h-12 bg-green-500 rounded-lg flex items-center justify-center mr-4">
-                <span class="text-white font-bold">YC</span>
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 overflow-hidden">
+                <img src="/icons/leaves_logo.png" alt="涌翠(YC)生电互通基础端" class="w-full h-full object-cover">
               </div>
               <div>
                 <h3 class="font-semibold text-gray-800 dark:text-white">涌翠(YC)生电互通基础端</h3>
                 <div class="flex flex-wrap gap-1 mt-1">
-                  <span class="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs rounded">Fabric</span>
+                  <span class="px-2 py-1 bg-red-100 dark:bg-red-900 text-red-800 dark:text-red-200 text-xs rounded">leaves</span>
                   <span class="px-2 py-1 bg-purple-100 dark:bg-purple-900 text-purple-800 dark:text-purple-200 text-xs rounded">生电</span>
                 </div>
               </div>
@@ -62,8 +62,31 @@
               为涌翠服务器定制的生电互通基础端，包含多种实用功能和优化。
             </p>
             <div class="flex space-x-2">
-              <a href="https://github.com/ning-g-mo/YC-Redstone-Interoperability-Basic-Client" target="_blank" class="btn-secondary text-sm">
-                GitHub
+              <a href="https://www.minebbs.com/resources/yc-leaves-tpa-home.9012/" target="_blank" class="btn-primary text-sm">
+                MineBBS
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 rounded-lg flex items-center justify-center mr-4 overflow-hidden">
+                <img src="/icons/geysermenu_logo.png" alt="GeyserMenu" class="w-full h-full object-cover">
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-800 dark:text-white">GeyserMenu</h3>
+                <div class="flex flex-wrap gap-1 mt-1">
+                  <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded">Spigot</span>
+                  <span class="px-2 py-1 bg-blue-100 dark:bg-blue-900 text-blue-800 dark:text-blue-200 text-xs rounded">GUI</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              为Geyser插件提供的GUI菜单界面，方便基岩版玩家使用服务器功能。
+            </p>
+            <div class="flex space-x-2">
+              <a href="https://www.minebbs.com/resources/geysermenu-geyser.10502/" target="_blank" class="btn-primary text-sm">
+                MineBBS
               </a>
             </div>
           </div>
@@ -85,8 +108,8 @@
               为HuskHomes插件提供的GUI界面，让玩家更方便地管理家园和传送点。
             </p>
             <div class="flex space-x-2">
-              <a href="https://github.com/ning-g-mo/HuskHomesForm" target="_blank" class="btn-secondary text-sm">
-                GitHub
+              <a href="https://www.minebbs.com/resources/huskhomesform-huskhomes.10836/" target="_blank" class="btn-primary text-sm">
+                MineBBS
               </a>
             </div>
           </div>
@@ -108,8 +131,8 @@
               简化玩家传送请求的GUI插件，提供直观的界面来管理传送请求。
             </p>
             <div class="flex space-x-2">
-              <a href="https://github.com/ning-g-mo/TpaGUI" target="_blank" class="btn-secondary text-sm">
-                GitHub
+              <a href="https://www.minebbs.com/resources/tpagui-tpa-gui.10835/" target="_blank" class="btn-primary text-sm">
+                MineBBS
               </a>
             </div>
           </div>
@@ -131,8 +154,31 @@
               为Minecraft服务器提供世界别名变量功能，简化多世界管理。
             </p>
             <div class="flex space-x-2">
-              <a href="https://github.com/ning-g-mo/WorldAliasVariables" target="_blank" class="btn-secondary text-sm">
-                GitHub
+              <a href="https://www.minebbs.com/resources/worldaliasvariables.10485/" target="_blank" class="btn-primary text-sm">
+                MineBBS
+              </a>
+            </div>
+          </div>
+
+          <div class="project-card">
+            <div class="flex items-center mb-4">
+              <div class="w-12 h-12 bg-yellow-500 rounded-lg flex items-center justify-center mr-4">
+                <span class="text-white font-bold">B</span>
+              </div>
+              <div>
+                <h3 class="font-semibold text-gray-800 dark:text-white">BellCommand</h3>
+                <div class="flex flex-wrap gap-1 mt-1">
+                  <span class="px-2 py-1 bg-yellow-100 dark:bg-yellow-900 text-yellow-800 dark:text-yellow-200 text-xs rounded">Spigot</span>
+                  <span class="px-2 py-1 bg-orange-100 dark:bg-orange-900 text-orange-800 dark:text-orange-200 text-xs rounded">音效</span>
+                </div>
+              </div>
+            </div>
+            <p class="text-gray-600 dark:text-gray-400 text-sm mb-4">
+              为Minecraft服务器添加钟声命令功能，支持自定义音效和范围。
+            </p>
+            <div class="flex space-x-2">
+              <a href="https://www.minebbs.com/resources/bellcommand.10134/" target="_blank" class="btn-primary text-sm">
+                MineBBS
               </a>
             </div>
           </div>
