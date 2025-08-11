@@ -127,9 +127,11 @@
             target="_blank"
             class="flex items-center space-x-4 p-6 rounded-lg bg-white/20 dark:bg-black/20 link-hover block"
           >
-            <div class="w-16 h-16 bg-purple-500 rounded-lg flex items-center justify-center">
-              <span class="text-white font-bold text-xl">Z</span>
-            </div>
+            <img 
+              src="/icons/zl_icon.png" 
+              alt="ZalithLauncher Logo" 
+              class="w-16 h-16 rounded-lg"
+            >
             <div>
               <h3 class="font-semibold text-gray-800 dark:text-white text-lg">ZalithLauncher官网</h3>
               <p class="text-gray-600 dark:text-gray-400">zalithlauncher.cn</p>

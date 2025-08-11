@@ -27,59 +27,75 @@
             </div>
           </router-link>
 
-          <!-- 桌面端：功能按钮组 -->
-          <div class="hidden md:flex items-center space-x-3">
+          <!-- 右侧：功能按钮组 -->
+          <div class="flex items-center space-x-2 md:space-x-3">
             <!-- 主页按钮 -->
             <router-link
               to="/"
-              class="glass-card px-4 py-3 link-hover group relative flex items-center space-x-2"
+              class="glass-card px-3 py-2 md:px-4 md:py-3 link-hover group relative flex items-center space-x-2"
               :class="{ 'bg-blue-500/20': $route.path === '/' }"
             >
-              <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 md:w-5 md:h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
               </svg>
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">主页</span>
+              
+              <!-- 按钮文字 -->
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:block">
+                主页
+              </span>
             </router-link>
 
             <!-- 项目按钮 -->
             <router-link
               to="/projects"
-              class="glass-card px-4 py-3 link-hover group relative flex items-center space-x-2"
+              class="glass-card px-3 py-2 md:px-4 md:py-3 link-hover group relative flex items-center space-x-2"
               :class="{ 'bg-purple-500/20': $route.path === '/projects' }"
             >
-              <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 md:w-5 md:h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
               </svg>
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">项目</span>
+              
+              <!-- 按钮文字 -->
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:block">
+                项目
+              </span>
             </router-link>
 
             <!-- 博客按钮 -->
             <router-link
               to="/blog"
-              class="glass-card px-4 py-3 link-hover group relative flex items-center space-x-2"
+              class="glass-card px-3 py-2 md:px-4 md:py-3 link-hover group relative flex items-center space-x-2"
               :class="{ 'bg-orange-500/20': $route.path.startsWith('/blog') }"
             >
-              <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <svg class="w-4 h-4 md:w-5 md:h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
               </svg>
-              <span class="text-sm font-medium text-gray-700 dark:text-gray-300">博客</span>
+              
+              <!-- 按钮文字 -->
+              <span class="text-sm font-medium text-gray-700 dark:text-gray-300 hidden sm:block">
+                博客
+              </span>
             </router-link>
 
             <!-- 分隔线 -->
-            <div class="w-px h-6 bg-gray-300 dark:bg-gray-600"></div>
+            <div class="w-px h-6 bg-gray-300 dark:bg-gray-600 hidden sm:block"></div>
 
             <!-- 无图模式切换按钮 -->
             <button
               @click="toggleBackgroundMode"
-              class="glass-card px-4 py-3 link-hover group relative flex items-center space-x-2"
+              class="glass-card px-3 py-2 md:px-4 md:py-3 link-hover group relative flex items-center space-x-2"
               :title="getBackgroundModeTooltip()"
             >
-              <svg v-if="!isMinimalMode" class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <!-- 有背景图标 -->
+              <svg v-if="!isMinimalMode" class="w-4 h-4 md:w-5 md:h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
               </svg>
-              <svg v-else class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <!-- 无图图标 -->
+              <svg v-else class="w-4 h-4 md:w-5 md:h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
               </svg>
+              
+              <!-- 按钮文字 -->
               <span class="text-sm font-medium text-gray-700 dark:text-gray-300 hidden lg:block">
                 {{ isMinimalMode ? '显示背景' : '隐藏背景' }}
               </span>
@@ -88,115 +104,24 @@
             <!-- 暗色模式切换按钮 -->
             <button
               @click="toggleDarkMode"
-              class="glass-card px-4 py-3 link-hover group relative flex items-center space-x-2"
+              class="glass-card px-3 py-2 md:px-4 md:py-3 link-hover group relative flex items-center space-x-2"
               :title="getDarkModeTooltip()"
             >
-              <svg v-if="!isDarkMode" class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
+              <!-- 亮色主题图标 -->
+              <svg v-if="!isDarkMode" class="w-4 h-4 md:w-5 md:h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
                 <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
               </svg>
-              <svg v-else class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+              <!-- 暗色主题图标 -->
+              <svg v-else class="w-4 h-4 md:w-5 md:h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
                 <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
               </svg>
+              
+              <!-- 按钮文字 -->
               <span class="text-sm font-medium text-gray-700 dark:text-gray-300 hidden lg:block">
                 {{ isDarkMode ? '亮色' : '暗色' }}
               </span>
             </button>
           </div>
-
-          <!-- 移动端：汉堡菜单按钮 -->
-          <div class="md:hidden flex items-center space-x-2">
-            <!-- 主题切换按钮（移动端简化版） -->
-            <button
-              @click="toggleDarkMode"
-              class="glass-card p-2 link-hover"
-              :title="getDarkModeTooltip()"
-            >
-              <svg v-if="!isDarkMode" class="w-5 h-5 text-yellow-500" fill="currentColor" viewBox="0 0 20 20">
-                <path fill-rule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" clip-rule="evenodd"></path>
-              </svg>
-              <svg v-else class="w-5 h-5 text-blue-400" fill="currentColor" viewBox="0 0 20 20">
-                <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path>
-              </svg>
-            </button>
-
-            <!-- 汉堡菜单按钮 -->
-            <button
-              @click="toggleMobileMenu"
-              class="glass-card p-2 link-hover"
-              :class="{ 'bg-blue-500/20': isMobileMenuOpen }"
-            >
-              <!-- 汉堡图标 -->
-              <svg v-if="!isMobileMenuOpen" class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
-              </svg>
-              <!-- 关闭图标 -->
-              <svg v-else class="w-6 h-6 text-gray-700 dark:text-gray-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
-              </svg>
-            </button>
-          </div>
-        </div>
-
-        <!-- 移动端下拉菜单 -->
-        <div 
-          v-if="isMobileMenuOpen" 
-          class="md:hidden border-t border-gray-200/30 dark:border-gray-600/30 mt-3 pt-3 pb-2 space-y-2"
-        >
-          <!-- 导航链接 -->
-          <router-link
-            to="/"
-            @click="closeMobileMenu"
-            class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-700/50 transition-colors"
-            :class="{ 'bg-blue-500/20': $route.path === '/' }"
-          >
-            <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
-            </svg>
-            <span class="text-gray-700 dark:text-gray-300 font-medium">主页</span>
-          </router-link>
-
-          <router-link
-            to="/projects"
-            @click="closeMobileMenu"
-            class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-700/50 transition-colors"
-            :class="{ 'bg-purple-500/20': $route.path === '/projects' }"
-          >
-            <svg class="w-5 h-5 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
-            </svg>
-            <span class="text-gray-700 dark:text-gray-300 font-medium">项目</span>
-          </router-link>
-
-          <router-link
-            to="/blog"
-            @click="closeMobileMenu"
-            class="flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-700/50 transition-colors"
-            :class="{ 'bg-orange-500/20': $route.path.startsWith('/blog') }"
-          >
-            <svg class="w-5 h-5 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"/>
-            </svg>
-            <span class="text-gray-700 dark:text-gray-300 font-medium">博客</span>
-          </router-link>
-
-          <!-- 分隔线 -->
-          <div class="border-t border-gray-200/30 dark:border-gray-600/30 my-2"></div>
-
-          <!-- 背景模式切换 -->
-          <button
-            @click="toggleBackgroundMode"
-            class="w-full flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100/50 dark:hover:bg-gray-700/50 transition-colors text-left"
-          >
-            <svg v-if="!isMinimalMode" class="w-5 h-5 text-green-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
-            </svg>
-            <svg v-else class="w-5 h-5 text-gray-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"></path>
-            </svg>
-            <span class="text-gray-700 dark:text-gray-300 font-medium">
-              {{ isMinimalMode ? '显示背景' : '隐藏背景' }}
-            </span>
-          </button>
         </div>
       </div>
     </header>
@@ -265,28 +190,11 @@
 </template>
 
 <script setup>
-import { ref, computed, onMounted, watch } from 'vue'
-import { useRoute } from 'vue-router'
-
-// 路由实例
-const $route = useRoute()
+import { ref, onMounted } from 'vue'
 
 // 分离的主题状态：无图模式和暗色模式
 const isMinimalMode = ref(true) // 默认为无图模式
 const isDarkMode = ref(false)   // 默认为亮色
-
-// 移动端菜单状态
-const isMobileMenuOpen = ref(false)
-
-// 移动端菜单切换
-const toggleMobileMenu = () => {
-  isMobileMenuOpen.value = !isMobileMenuOpen.value
-}
-
-// 关闭移动端菜单
-const closeMobileMenu = () => {
-  isMobileMenuOpen.value = false
-}
 
 // 背景模式切换
 const toggleBackgroundMode = () => {
@@ -355,10 +263,5 @@ onMounted(() => {
   if (savedMinimalMode === null && savedDarkMode === null) {
     saveThemeSettings()
   }
-})
-
-// 监听路由变化，关闭移动端菜单
-watch(() => $route.path, () => {
-  closeMobileMenu()
 })
 </script>
