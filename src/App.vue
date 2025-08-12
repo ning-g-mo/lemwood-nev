@@ -21,7 +21,7 @@
               alt="Logo" 
               class="w-8 h-8 md:w-10 md:h-10 rounded-full"
             >
-            <div class="hidden sm:block">
+            <div>
               <h1 class="text-lg md:text-xl font-bold gradient-text">柠枺</h1>
               <p class="text-xs text-gray-600 dark:text-gray-400 hidden md:block">个人主页</p>
             </div>
