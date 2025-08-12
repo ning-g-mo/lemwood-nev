@@ -18,12 +18,14 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: '20' # 使用更稳定的LTS版本
-          cache: 'npm'
-          cache-dependency-path: 'package-lock.json'
+          # 移除缓存配置，因为我们会删除package-lock.json
 
-      - name: Install dependencies
+      - name: Clean and install dependencies
         run: |
-          npm ci # 使用ci而不是install以确保一致性
+          # 修复 @rollup/rollup-linux-x64-gnu 模块缺失问题
+          # 这是npm的已知bug: https://github.com/npm/cli/issues/4828
+          rm -rf node_modules package-lock.json
+          npm install
 
       - name: Build project
         run: |
@@ -55,4 +57,4 @@ jobs:
         
       - name: Notify on failure
         if: failure()
-        run: echo "❌ 部署失败，请检查日志确定原因。" 
+        run: echo "❌ 部署失败，请检查日志确定原因。"
