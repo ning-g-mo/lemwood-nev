@@ -19,26 +19,24 @@ jobs:
         with:
           node-version: '20' # 使用更稳定的LTS版本
           cache: 'npm'
-          cache-dependency-path: 'mc-nav/package-lock.json'
+          cache-dependency-path: 'package-lock.json'
 
       - name: Install dependencies
         run: |
-          cd mc-nav
           npm ci # 使用ci而不是install以确保一致性
 
       - name: Build project
         run: |
-          cd mc-nav
           npm run build
           
       - name: Test build output
         run: |
-          if [ ! -d "mc-nav/dist" ]; then
+          if [ ! -d "dist" ]; then
             echo "Build failed - dist directory not found"
             exit 1
           fi
           echo "Build succeeded - files to be deployed:"
-          ls -la mc-nav/dist
+          ls -la dist
 
       - name: Install sshpass
         run: sudo apt-get install -y sshpass
@@ -46,7 +44,6 @@ jobs:
       - name: Deploy to Server
         if: success()
         run: |
-          cd mc-nav
           echo "开始部署到服务器..."
           sshpass -p "${{ secrets.REMOTE_PASSWORD }}" rsync -avz --delete -e "ssh -o StrictHostKeyChecking=no" \
             dist/ ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }}:/opt/1panel/apps/openresty/openresty/www/sites/lemwood.cn/index
