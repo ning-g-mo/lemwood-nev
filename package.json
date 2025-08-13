@@ -9,7 +9,7 @@
     "dev": "vite",
     "build": "vite build",
     "preview": "vite preview",
-    "install": "npm install"
+    "install": "vite install"
   },
   "dependencies": {
     "vue": "^3.4.21",
